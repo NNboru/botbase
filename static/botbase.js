@@ -648,7 +648,7 @@ stopwords=new Set([ 'a', 'am', 'the', 'is', 'are', 'of', 'in', 'be', 'been', 'be
 function process(msg){
     if(/ and /.test(msg) || / or /.test(msg))
         return 'please dont ask multiple things to me';
-    msg = msg.toLowerCase().replace(/[,.;{}!()`":|?\\\/-]/g,' ')
+    msg = msg.toLowerCase().replace(/[,.;{}!`":|?\\\/-]/g,' ')
     msg = msg.replace(/[`']s/g,'').replace(/[`']ll/g,'').replace(/[`']ve/g,'').replace(/[`']d/g,'');
     msg = msg.replace(/n[`']t/g,' not').replace(/[`']/g,'').replace(/aint/g,'not').replace(/wont/g,'not');
     msg = msg.split(' ');

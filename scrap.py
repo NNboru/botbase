@@ -52,7 +52,7 @@ def searchgoogle(topic):
             return data.text
 
     
-    return page
+    return ''
 
 
 def searchgeeks(topic):

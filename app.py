@@ -3,6 +3,7 @@ import sqlite3 as sql
 from random import choice
 import json
 from scrap import *
+from math import *
 
 app = Flask(__name__)
 static = app.root_path + r'/static/'
@@ -249,17 +250,20 @@ def askbot():
             for i in allpre:
                 if ques.startswith(i):
                     ques = ques[len(i):].lstrip()
-                    break
             for i in allsuf:
                 if ques.endswith(i):
                     ques = ques[:-len(i)].rstrip()
-                    break
-            #search google
-            ans = searchgoogle(ques)
-            if ans and not ans.startswith('error:'):
-                rep = make_response({'code':0, 'msg':ans})
-            else:
-                rep = make_response({'code':0, 'msg':''})
+            # solve/calculate
+            try:
+                ans = eval(ques)
+                rep = make_response({'code':0, 'msg':ans, 'myans':1})
+            except:
+                #search google
+                ans = searchgoogle(ques)
+                if ans and not ans.startswith('error:'):
+                    rep = make_response({'code':0, 'msg':ans})
+                else:
+                    rep = make_response({'code':0, 'msg':''})
         close(con)
     except Exception as e:
         rep = make_response({'code':1, 'msg':str(e)})
@@ -280,11 +284,9 @@ def askgeeks():
             for i in allpre:
                 if ques.startswith(i):
                     ques = ques[len(i):].lstrip()
-                    break
             for i in allsuf:
                 if ques.endswith(i):
                     ques = ques[:-len(i)].rstrip()
-                    break
             close(con)
         ans = searchgeeks(ques)
         if ans and not ans.startswith('error:'):
@@ -309,11 +311,9 @@ def askcppcode():
             for i in allpre:
                 if ques.startswith(i):
                     ques = ques[len(i):].lstrip()
-                    break
             for i in allsuf:
                 if ques.endswith(i):
                     ques = ques[:-len(i)].rstrip()
-                    break
             close(con)
         ans = cppcode(ques)
         if ans and not ans.startswith('error:'):
