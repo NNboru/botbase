@@ -641,9 +641,9 @@ async function query(q){
 }
 
 exchange = {'u':'you', 'yeah':'yes', 'nah':'no', 'naah':'no', 'isnt':'not', 'dont':'not','didnt':'not', 'wasnt':'not',
-            'havent':'not', 'hasnt':'not', 'arent':'not', 'didnt':'not','btw':'between','whats':'what'};
+            'havent':'not', 'hasnt':'not', 'arent':'not', 'didnt':'not','btw':'between','whats':'what','hows':'how'};
 stopwords=new Set([ 'a', 'am', 'the', 'is', 'are', 'of', 'in', 'be', 'been', 'being','was', 'will','would','can', 'could',
-                    'may', 'might', 'should', 'do', 'did', 'does', 'must', 'that','thats','this','also','too',
+                    'may', 'might', 'should', 'do', 'did', 'does', 'must', 'that','thats','this','also','too', 'about',
                     'very', 'so', 'o', 'm', 'r','to', 'has', 'had', 'something','some', 'have','please','really', 'bro']);
 function process(msg){
     if(/ and /.test(msg) || / or /.test(msg))
