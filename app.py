@@ -14,7 +14,7 @@ def index():
 
 @app.route('/load/<x>')
 def myicon(x):
-    rep = make_response(send_file(static+r'files/'+x))
+    rep = make_response(send_file(app.root_path+'/'+x))
     rep.headers['Access-Control-Allow-Origin']='*';
     return rep
 
