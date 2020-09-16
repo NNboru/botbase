@@ -1,0 +1,201 @@
+html{
+    background-color: bisque;
+    display: grid;
+    justify-content: center;
+}
+body{
+    margin:0px;
+    width :96vw;
+    display: grid;
+    justify-content: center;
+    /* align-content: center; */
+    box-sizing: border-box;
+}
+body *{
+    box-sizing: border-box;
+    font:17px cursive;
+    -webkit-tap-highlight-color: transparent;
+    /* justify-content: center; */
+    outline: none;
+    transition:all .2s;
+}
+@media screen{
+    body *{
+        font-size: 14px;
+    }
+}
+input{
+    border-radius: 4px;
+    cursor: pointer;
+    background: mintcream;
+    text-indent: 20px;
+    /* text-align: center; */
+    transition: all .2s;
+    color:crimson;
+    font-size: 28px;
+    font-weight: 700;
+    padding: 6px;
+}
+button,input[type=button]{
+    background:lightgreen;
+    border:4px solid #000D;
+    cursor: pointer;
+}
+button:hover,input:hover, input:focus{
+    background-color: lightcyan;
+}
+#frm2 input, #frm3 input, #frm4 input, #frm5 input, #frm6 input{
+    font-size: 18px;
+    padding:0;
+}
+.itembox{
+    /* border:2px solid #23948988; */
+    min-height: 50px;
+    background: linear-gradient(20deg, beige, bisque);
+    max-width: fit-content;
+}
+
+
+header{
+    padding:10px;
+    font:40px forte;
+    /* background-color:crimson; */
+    text-align: center;
+}
+#frm, #frm2, #frm3, #frm4, #frm5, #frm6{
+    display:grid;
+    grid-auto-flow: column;
+    grid-template-columns: min(700px, calc(90vw - 100px)) 120px;
+}
+#frm3{
+    display: none;
+}
+
+#finder, .divsubstr, #divchatbot{
+    border:4px double #23948998;
+}
+
+#shower{
+    position: relative;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: inline-block;
+}
+#addbut, #addbut2{
+    display:none;
+    margin: 4px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: .8em;
+}
+
+#adder{
+    border:4px double #23948998;
+    background: linear-gradient(20deg, beige, bisque);
+}
+.label{
+    padding:4px;
+    text-indent: 20px;
+    background: #ffcf6f;
+}
+.big{
+    background:sandybrown;
+    font-size:24px;
+    padding:4px;
+    color:darkred;
+    font-weight: bolder;
+    font-style: italic;
+    text-decoration:underline;
+}
+
+.itembox>div{
+    background-color: azure;
+    border-radius: 8px;
+    padding:2px;
+    display: inline-block;
+    margin:8px;
+}
+.itembox>div>div{
+    display: inline-block;
+}
+.itembox>div>div:first-child{
+    padding-left:30px;
+    padding-right:30px;
+}
+.butrem{
+    border:2px solid dodgerblue;
+    background-color: red;
+    border-radius: 10px;
+    padding:0px;
+    padding-left:10px;
+    padding-right:10px;
+    font-size: .9em;
+}
+.butrem:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+#resbuts, #addbuts{
+    display:grid;
+    grid-auto-flow: column;
+    align-items: stretch;
+}
+#resbuts{
+    display: none;
+}
+
+
+#allchatmsg{
+    min-height: 50px;
+    background: linear-gradient(20deg, beige, bisque);
+}
+.usermsg, .botmsg, .butset{
+    width:fit-content;
+    max-width: 640px;
+    margin:4px;
+    padding:2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+}
+.usermsg{
+    background: azure;
+    margin-right:auto;
+}
+.botmsg, .butset{
+    background: #0FF3;
+    margin-left:auto;
+}
+.butset>button{
+    font-size: .8em;
+    border-width: 1px;
+}
+
+
+#error, #loader{
+    transition:.02s;
+    background:#134d;
+    color:red;
+    font-weight: bold;
+    position: fixed;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    width:100%;
+    margin:auto;
+    padding: 8px;
+    cursor: pointer;
+    opacity: .95;
+}
+.hide{
+    transform: scale(0);
+}
+#loader{
+    bottom:0;
+    opacity: .6;
+    color:cyan;
+}
+
+
+
