@@ -1,0 +1,242 @@
+html{
+    background-color: #170420;
+    display: grid;
+    justify-content: center;
+}
+body{
+    margin:0px;
+    width :96vw;
+    display: grid;
+    justify-content: center;
+    /* align-content: center; */
+    box-sizing: border-box;
+}
+body *{
+    box-sizing: border-box;
+    font:15px cursive;
+    -webkit-tap-highlight-color: transparent;
+    /* justify-content: center; */
+    outline: none;
+    transition:all .2s;
+    color:azure;
+}
+@media (max-width:450px){
+    body *{
+        font-size: 14px;
+    }
+}
+input{
+    /* border-radius: 4px; */
+    cursor: pointer;
+    background: mintcream;
+    text-indent: 20px;
+    /* text-align: center; */
+    transition: all .2s;
+    color: #495057;
+    font-size: 1.6em;
+    font-weight: 700;
+    padding: 6px;
+    width: 100%;
+}
+button,input[type=button]{
+    background:darkblue;
+    border:4px solid #000D;
+    cursor: pointer;
+    border-radius: 4px;
+}
+button:hover{
+    background-color: blue;
+}
+
+
+header, footer{
+    padding: 10px;
+    display: grid;
+    text-align: center;
+    grid-auto-flow: column;
+}
+@media (max-width:450px){
+    header
+    {
+        grid-auto-flow: row;
+    }
+}
+
+
+#divchatbot{
+    /* border:4px double #23948998; */
+    width:90vw;
+    border-radius: 8px;
+    margin: auto;
+    background-color: white;
+    padding:5%;
+    font-size: 1.6em;
+    color:darkgray;
+    line-height: 2em;
+}
+
+#allchatmsg{
+    min-height:min(60vw, 50vh);
+    background: black;
+    padding:4px;
+    margin: auto;
+    /* background: linear-gradient(20deg, beige, bisque); */
+}
+.usermsg, .botmsg, .butset{
+    width:fit-content;
+    max-width: 640px;
+    margin:4px;
+    padding:2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+    font-size: 1.6em;
+}
+.usermsg{
+    background: azure;
+    color:black;
+    margin-right:auto;
+}
+.botmsg, .butset{
+    background: #0FF3;
+    margin-left:auto;
+}
+.butset>button{
+    font-size: .8em;
+    border-width: 1px;
+}
+
+
+#error, #loader{
+    transition:.02s;
+    background:#134;
+    color:red;
+    font-weight: bold;
+    font-size: 1.6em;
+    position: fixed;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    width:100%;
+    margin:auto;
+    padding: 8px;
+    cursor: pointer;
+}
+.hide{
+    transform: scale(0);
+}
+#loader{
+    bottom:0;
+    color: lightcyan;
+}
+
+
+
+/* from mathbot-front */
+.jumbotron{
+    width:90vw;
+box-sizing: border-box;
+padding: 70px 30px;
+margin: 0 auto;
+background: #512da8;
+color: #fffaf0;
+border-radius: 0;
+}
+
+.container{
+color: #fffaf0;
+box-sizing: border-box;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
+max-width: 960px;
+}
+
+.row{
+color: #fffaf0;
+box-sizing: border-box;
+display:grid;
+grid-auto-flow: column;
+margin: 0 auto;
+}
+@media (max-width:450px){
+    .row{
+        grid-auto-flow: row;
+    }
+}
+
+.col-sm-6{
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.5;
+font-family: helvetica, roboto;
+-webkit-font-smoothing: antialiased;
+color: #fffaf0;
+box-sizing: border-box;
+position: relative;
+padding-right: 15px;
+padding-left: 15px;
+}
+
+.col-sm-4{
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.5;
+text-align: left;-webkit-font-smoothing: antialiased;
+color: #fffaf0;
+box-sizing: border-box;
+position: relative;
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+flex: 0 0 33.333333%;
+max-width: 33.333333%;
+margin-right: auto!important;
+}
+
+.media{
+color: #fffaf0;
+box-sizing: border-box;
+display: flex;
+align-items: flex-start;
+}
+
+.media>img{
+color: #fffaf0;
+height: 200px;
+width: 200px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+a{
+    color:dodgerblue;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+a:hover{
+    color:deepskyblue;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+img{
+    box-sizing: border-box;
+border-style: none;
+vertical-align: middle;
+margin-bottom: 4px;
+}
+
+
+#frm6 button{
+    display: none;
+}
+
+.edit{
+    position: absolute;
+    right:0;
+    top:0;
+}

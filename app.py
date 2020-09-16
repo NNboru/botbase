@@ -13,8 +13,14 @@ static = app.root_path + r'/static/'
 def index():
     return render_template('index.html')
 
+@app.route('/update')
+def updatepage():
+    return render_template('update.html')
+
+
 @app.route('/load/<x>')
 def myicon(x):
+    print(x)
     rep = make_response(send_file(app.root_path+'/'+x))
     rep.headers['Access-Control-Allow-Origin']='*';
     return rep

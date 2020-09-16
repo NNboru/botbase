@@ -479,129 +479,6 @@ async function funcdelsuf(e){
 }
 
 
-frm6.onsubmit=e=>{
-    funcusermsg().catch(e=>{
-        console.dir(e);
-        hideloader();
-        showerror('network error, check your internet connection');
-    });
-    return false;
-}
-async function funcusermsg(){
-    if(inpchat.value=='') return;
-    allchatmsg.insertAdjacentHTML('beforeEnd',
-                `<div class='usermsg'>
-                    ${inpchat.value}
-                </div>`
-            );
-    showloader('thinking..');
-    
-    let obj= new FormData(), ques= process(inpchat.value);
-    obj.append('ques',ques);
-    let resp = await fetch(website+'/askbot', { method:'POST', body:obj });
-    if(!resp.ok)
-        showerror('Some error occurred!');
-    else{
-        let dict = await resp.json();
-        if(dict['code'])
-            showerror(dict['msg']);
-        else{
-            inpchat.value='';
-            if(dict['msg']){
-                allchatmsg.insertAdjacentHTML('beforeEnd',
-                    `<div class='botmsg'>
-                        ${dict['msg']}
-                    </div>`
-                );
-            }
-            else{
-                allchatmsg.insertAdjacentHTML('beforeEnd',
-                    `<div class='botmsg'>
-                        ${"sorry, I don't know what to say."}
-                    </div>`
-                );
-            }
-            if(!dict['myans'])
-                allchatmsg.insertAdjacentHTML('beforeEnd',
-                    `<div class='butset'>
-                        search in
-                        <button onclick="searchgeeks('${ques}')">geekforgeeks for explanation</button>
-                        <button onclick="searchcpp('${ques}')">cpp-algorithm for c++ code</button>
-                    </div>`
-                );
-            
-        }
-    }
-
-    hideloader();
-}
-
-async function searchgeeks(msg){
-    showloader('searching..');
-    
-    let obj= new FormData();
-    obj.append('ques',msg);
-    let resp = await fetch(website+'/askgeeks', { method:'POST', body:obj });
-    if(!resp.ok)
-        showerror('Some error occurred!');
-    else{
-        let dict = await resp.json();
-        if(dict['code'])
-            showerror(dict['msg']);
-        else{
-            if(dict['msg']){
-                allchatmsg.insertAdjacentHTML('beforeEnd',
-                    `<div class='botmsg'>
-                        ${dict['msg']}
-                    </div>`
-                );
-            }
-            else{
-                allchatmsg.insertAdjacentHTML('beforeEnd',
-                    `<div class='botmsg'>
-                        <i>"sorry, not found anything."</i>
-                    </div>`
-                );
-            }
-        }
-    }
-
-    hideloader();
-}
-
-async function searchcpp(msg){
-    showloader('searching..');
-    
-    let obj= new FormData();
-    obj.append('ques',msg);
-    let resp = await fetch(website+'/askcppcode', { method:'POST', body:obj });
-    if(!resp.ok)
-        showerror('Some error occurred!');
-    else{
-        let dict = await resp.json();
-        if(dict['code'])
-            showerror(dict['msg']);
-        else{
-            if(dict['msg']){
-                allchatmsg.insertAdjacentHTML('beforeEnd',
-                    `<div class='botmsg'>
-                        ${dict['msg']}
-                    </div>`
-                );
-            }
-            else{
-                allchatmsg.insertAdjacentHTML('beforeEnd',
-                    `<div class='botmsg'>
-                        <i>"sorry, not found anything."</i>
-                    </div>`
-                );
-            }
-        }
-    }
-
-    hideloader();
-}
-
 
 
 
@@ -648,7 +525,7 @@ stopwords=new Set([ 'a', 'am', 'the', 'is', 'are', 'of', 'in', 'be', 'been', 'be
 function process(msg){
     if(/ and /.test(msg) || / or /.test(msg))
         return 'please dont ask multiple things to me';
-    msg = msg.toLowerCase().replace(/[,.;{}!`":|?\\\/-]/g,' ')
+    msg = msg.toLowerCase().replace(/[,.;{}!`":|?\\]/g,' ')
     msg = msg.replace(/[`']s/g,'').replace(/[`']ll/g,'').replace(/[`']ve/g,'').replace(/[`']d/g,'');
     msg = msg.replace(/n[`']t/g,' not').replace(/[`']/g,'').replace(/aint/g,'not').replace(/wont/g,'not');
     msg = msg.split(' ');

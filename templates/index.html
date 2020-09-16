@@ -8,84 +8,57 @@
     <meta property="og:title" content="BotBase" />
     <meta property="og:description" content="interface to update our mathbot" />
     
-    <link rel=stylesheet href='../static/botbase.css' />
+    <link rel=stylesheet href='../static/index.css' />
 </head>
 
 <body id=bdy>
     <div id=error class='hide'></div>
     <div id=loader class='hide'></div>
-    <header>
-        MATHBOT HANDLER
-    </header>
-    <br />
-    <div id=finder>
-        <form id=frm>
-            <input type='text' placeholder="chat.." spellcheck="false" autocomplete="off" id='typer' />
-            <button type="submit">search</button>
-        </form>
-        <div id='shower'></div>
-        <button id=addbut>move to adder box</button>
-        <button id=addbut2>add to search result set</button>
-        <div class='big'>search result</div>
-        <div class='label'>questions -</div>
-        <div id=resq class='itembox'></div>
-        <div class='label'>answers -</div>
-        <form id=frm3>
-            <input type='text' placeholder="add answer" spellcheck="false" autocomplete="off" id='inpadda'  />
-            <button type="submit">add to DB</button>
-        </form>
-        <div id=resa class='itembox'></div>
-        <div id=resbuts>
-            <button onclick='deleteqaset()'>delete whole question-answer-set</button>
-        </div>
-    </div>
-
-    <br />
-    <br />
-
-    <div id=adder>
-        <div class='big'>new ques-ans-set adder box</div>
-        <div class='label'> questions -</div>
-        <div id=addq class='itembox'></div>
-        <div class='label'> answers - </div>
-        <form id=frm2>
-            <input type='text' placeholder="answer" spellcheck="false" autocomplete="off" id='inpans'  />
-            <button type="submit">add</button>
-        </form>
-        <div id=adda class='itembox'></div>
-        <div id=addbuts>
-            <button onclick='clearadder()'>Clear all</button>
-            <button onclick=' addadder() '>Add to DB</button>
-        </div>
-    </div>
-
-    <br/><br/><br/><br/>
     
-    <div class='divsubstr'>
-        <div id='shower2'></div>
-        <div class='big'>Question sub-strings</div>
-        <div class='label'>prefix -</div>
-        <form id=frm4>
-            <input type='text' placeholder="add prefix" spellcheck="false" autocomplete="off" id='inppre'  />
-            <button type="submit">add</button>
-        </form>
-        <div id=prefix class='itembox'></div>
-        <div class='label'>sufix -</div>
-        <form id=frm5>
-            <input type='text' placeholder="add sufix" spellcheck="false" autocomplete="off" id='inpsuf'  />
-            <button type="submit">add</button>
-        </form>
-        <div id=sufix class='itembox'></div>
+    <img src="../static/edit.png" height='10' width='10' class='edit' onclick='window.location="/update"' />
 
+    <header>
+        <a href="https://poka.pythonanywhere.com/EquationPlotter/">
+            <img  src="../static/graph.png" height="28" width="28" />
+            Graph Plotter
+        </a>
+        <a href="https://poka.pythonanywhere.com/plotYourFile/">
+            <img  src="../static/file.png" height="28" width="28" />
+            Data Helper
+        </a>
+        <a href="http://mathbot-front.herokuapp.com/aboutus">
+            <img  src="../static/user.png" height="28" width="28" />
+            About Us
+        </a>
+        
+    </header>
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row row-header">
+                <div class="col-12 col-sm-6">
+                    <h1>MathBot</h1>
+                    <p>We take inspiration from the World's best github links and programming blogs, 
+                        and create a unique fusion of different features. Our brain draining creations 
+                        will shatter and break your mind!
+                    </p>
+                </div>
+                <div class="col-12 col-sm-4 mr-auto">
+                    <div class="media">
+                        <img src="../static/logo_main.png" height="200" width="160" alt="MathBot">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <br/><br/><br/><br/>
     
     <div id=divchatbot>
-        <div class="big">Working Model of Scripted chatbot</div>
+        &nbsp; Chat Area :-)
         <div id='allchatmsg'></div>
         <form id=frm6>
-            <input type='text' placeholder="chat.." spellcheck="false" autocomplete="off" id='inpchat'  />
+            <input type='text' placeholder="chat.." spellcheck="false" autocomplete="off" id='inpchat' />
             <button type="submit">chat</button>
         </form>
 
@@ -93,7 +66,11 @@
 
     <br/><br/>
 
-    <script src='../static/botbase.js'></script>
+    <footer>
+        <div>© Copyright 2020 MathBot</div>
+    </footer>
+    
+    <script src='../static/index.js'></script>
 </body>
 
 </html>
