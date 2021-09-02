@@ -152,7 +152,7 @@ header{
 }
 .usermsg, .botmsg, .butset{
     width:fit-content;
-    max-width: 640px;
+    max-width: 720px;
     margin:4px;
     padding:2px;
     padding-left: 10px;

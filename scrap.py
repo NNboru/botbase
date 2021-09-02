@@ -54,7 +54,7 @@ def searchgoogle(topic):
     
     return ''
 
-
+tmp=[]
 def searchgeeks(topic):
     '''search for topic in geeksforgeeks'''
     if topic in ['bye','exit']:
@@ -68,17 +68,23 @@ def searchgeeks(topic):
         return 'error: 1'
     page=bs(resp.text,'html.parser')
 
-    url2 = page.select_one('.r a')['href']
+    url2 = page.select_one('.g a')['href']
     if not url2:
         return 'error: 2'
     resp2 = rq.get(url2)
     if not resp2.ok:
         return 'error: 3'
-    page2=bs(resp2.text,'html.parser')
-    title=page2.find(class_='entry-header')
-    data=page2.find(class_='entry-content')
+    page2=bs(resp2.text,'lxml')
+    #title=page2.find(class_='entry-header')
+    title=page2.h1
+    data=page2.find(class_='content')
+    if data:
+        data=data.find(class_='text')
+    tmp.append(data)
     if not data:
         return 'error: Not found in geeksforgeeks'
+    while data.find(class_='_ap_apex_ad'):
+        data.find(class_='_ap_apex_ad').decompose()
     code = data.find(class_='code-block')
     if code:
         code.decompose()
@@ -92,14 +98,15 @@ def searchgeeks(topic):
     if title and 'entry-content' not in title.parent['class']:
         ans.append(str(title)) #str(title) for html code
     for i in data.children:
-        if i.name and len(str(i))>10:
+        if i.name and (len(str(i))>10 or (i.children.__length_hint__()==1 and i.findNext().name=='img')):
             flag=0
-            for each in ('Recommended','Following are','Please write comments'):
+            for each in ('Recommended','Following are','write comments','Attention reader'):
                 if i.text.find(each)!=-1:
                     flag=1
             if flag==1:
                 break
-            if i.text:ans.append(i.decode()) #str(i) for html code
+            if i.text:
+                ans.append(i.decode()) #str(i) for html code
             '''
             if len(ans)==2:
                 ans.append('\nfor more go to the link: '+url2)
@@ -122,7 +129,7 @@ def cppcode(topic):
         return 'error: 1'
     page=bs(resp.text,'html.parser')
 
-    url2 = page.select_one('.r a')['href']
+    url2 = page.select_one('.g a')['href']
     if not url2:
         return 'error: 2'
     resp2 = rq.get(url2)
