@@ -266,8 +266,11 @@ def askbot():
             except:
                 #search google
                 ans = searchgoogle(ques)
-                if ans and not ans.startswith('error:'):
-                    rep = make_response({'code':0, 'msg':ans})
+                if ans:
+                    if ans.startswith('error:'):
+                        rep = make_response({'code':1, 'msg':ans})
+                    else:
+                        rep = make_response({'code':0, 'msg':ans})
                 else:
                     rep = make_response({'code':0, 'msg':''})
         close(con)

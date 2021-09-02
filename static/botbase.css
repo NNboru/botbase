@@ -167,6 +167,12 @@ header{
     background: #0FF3;
     margin-left:auto;
 }
+.botmsg img {
+    width: min(60vw , 60vh);
+}
+.botmsg{
+    max-width: min( 75vw, 640px);
+}
 .butset>button{
     font-size: .8em;
     border-width: 1px;
